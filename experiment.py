@@ -4,6 +4,7 @@ import random
 import matplotlib.pyplot as plt
 import torch
 import torchvision
+import copy
 flags.DEFINE_integer('iter', 100, 'number of iterations')
 flags.DEFINE_integer('start', 0, 'start of plot')
 
@@ -28,12 +29,7 @@ def main(_):
                 torch.set_num_threads(thread_num)
                 for device in ['cpu', 'cuda']:
                     model = model.to(device)
-                    if idx == 0:
-                        _model = torchvision.models.mobilenet_v2(pretrained=True).to(device)
-                    elif idx == 1:
-                        _model = torchvision.models.resnet18(pretrained=True).to(device)
-                    else:
-                        _model = torchvision.models.shufflenet_v2_x1_0(pretrained=True).to(device)
+                    _model = copy.deepcopy(model).to(device)
                     time_list = []
                     size_list = []
                     print(f'{model_name[idx]}-{device}-{thread_num}', end="")
