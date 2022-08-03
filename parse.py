@@ -6,7 +6,7 @@ flags.DEFINE_string('filename', 'out', 'filename of output')
 def main(_):
     filename = flags.FLAGS.filename
     file = pathlib.Path(filename)
-    contents = file.read_text(encoding='utf-16')
+    contents = file.read_text()
     lines = contents.split('\n')
     datas = {}
     first_line = True
