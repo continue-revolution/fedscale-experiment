@@ -15,8 +15,8 @@ def main(_):
     models = [mobilenetv2, resnet18, shufflenetV2]
     model_size = [0, 0, 0]
     for i, model in enumerate(models):
-            for _, param in enumerate(model.parameters()):
-                        model_size[i] += param.numel() * 4
+        for _, param in enumerate(model.parameters()):
+            model_size[i] += param.numel() * 4
     print(model_size)
 
     num_iteration = flags.FLAGS.iter
