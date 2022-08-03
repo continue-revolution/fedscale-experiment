@@ -37,9 +37,9 @@ def main(_):
                     time_list = []
                     size_list = []
                     print(f'{model_name[idx]}-{device}-{thread_num}', end="")
+                    random.seed(100)
                     for i in range(num_iteration):
                         for param1, param2 in zip(_model.parameters(), model.parameters()):
-                            random.seed(100)
                             rand = torch.tensor(random.random(), dtype=param1.data.dtype)
                             param1.data += rand * param2.data
                         time_list.append(time.time())
