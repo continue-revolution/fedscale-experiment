@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$1" == "--cloud" ]; then
-    source install.sh
+    source install.sh --cuda
 fi
 
 if [ "$2" == "--expe" ]; then
