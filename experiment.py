@@ -25,8 +25,9 @@ def main(_):
     fig, ax = plt.subplots()
     with torch.no_grad():
         for idx, model in enumerate(models):
-            for thread_num in [1, 2, 4, 16, 32]:
-                torch.set_num_threads(thread_num)
+            # for thread_num in [1, 2, 4, 16, 32]:
+                # torch.set_num_threads(thread_num)
+                thread_num = 0
                 for device in ['cpu', 'cuda']:
                     model = model.to(device)
                     _model = copy.deepcopy(model).to(device)
