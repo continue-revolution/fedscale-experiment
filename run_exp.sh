@@ -17,4 +17,8 @@ if [ "$2" == "--idx" ]; then
     done
     rm err
     python parse.py > output$3
+    for i in 1 2 4 8 16 32
+    do
+        rm out$i
+    done
 fi
